@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        PromptVerse AI | Prompt Engineering Studio
+    </title>
+
+    <meta name="description"
+          content="Interactive Prompt Engineering Research Studio with Few-Shot Prompting, Persona Simulation, AI Battle Arena, Analytics Dashboard and Gamification.">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Remix Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================
+         BACKGROUND SYSTEM
+    ====================================== -->
+
+    <canvas id="particlesCanvas"></canvas>
+
+    <div class="grid-overlay"></div>
+
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+
+    <!-- =====================================
+         NAVBAR
+    ====================================== -->
+
+    <header class="main-header">
+
+        <nav class="navbar">
+
+            <div class="logo-wrapper">
+
+                <div class="logo-icon">
+
+                    <i class="ri-ai-generate"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        PromptVerse AI
+                    </h2>
+
+                    <span>
+                        Prompt Engineering Studio
+                    </span>
+
+                </div>
+
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#playground">
+                        Playground
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#personaLab">
+                        Personas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#battleArena">
+                        Battle Arena
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#analytics">
+                        Analytics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#learningHub">
+                        Learning Hub
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="nav-actions">
+
+                <button id="themeToggle"
+                        class="theme-btn">
+
+                    <i class="ri-moon-line"></i>
+
+                </button>
+
+                <button class="primary-btn">
+
+                    Launch Studio
+
+                </button>
+
+            </div>
+
+            <button id="mobileMenuBtn"
+                    class="mobile-menu-btn">
+
+                <i class="ri-menu-line"></i>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+    <!-- =====================================
+         HERO SECTION
+    ====================================== -->
+
+    <section class="hero-section">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+
+                <span class="pulse-dot"></span>
+
+                AI Prompt Engineering Research Platform
+
+            </div>
+
+            <h1 class="hero-title">
+
+                Master
+
+                <span class="gradient-text">
+
+                    Prompt Engineering
+
+                </span>
+
+                Through Interactive Experiments
+
+            </h1>
+
+            <p class="hero-description">
+
+                Explore how prompt structure,
+                tone, personas and few-shot examples
+                influence creativity, reasoning,
+                consistency and output quality.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+
+                    <i class="ri-rocket-2-line"></i>
+
+                    Start Experiment
+
+                </button>
+
+                <button class="secondary-btn">
+
+                    <i class="ri-play-circle-line"></i>
+
+                    Watch Demo
+
+                </button>
+
+            </div>
+
+            <!-- HERO STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card glass-card">
+
+                    <h2 id="experimentCount">
+                        1,250+
+                    </h2>
+
+                    <span>
+                        Experiments
+                    </span>
+
+                </div>
+
+                <div class="stat-card glass-card">
+
+                    <h2 id="personaCount">
+                        8
+                    </h2>
+
+                    <span>
+                        Personas
+                    </span>
+
+                </div>
+
+                <div class="stat-card glass-card">
+
+                    <h2 id="techniqueCount">
+                        14
+                    </h2>
+
+                    <span>
+                        Techniques
+                    </span>
+
+                </div>
+
+                <div class="stat-card glass-card">
+
+                    <h2 id="accuracyCount">
+                        96%
+                    </h2>
+
+                    <span>
+                        Insights
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="floating-dashboard glass-card">
+
+                <div class="dashboard-header">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <div class="dashboard-body">
+
+                    <div class="mini-card">
+
+                        <h4>
+                            Prompt Score
+                        </h4>
+
+                        <div class="score-circle">
+
+                            <span>
+                                94
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mini-card">
+
+                        <h4>
+                            Creativity
+                        </h4>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill creativity-fill"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mini-card">
+
+                        <h4>
+                            Detail
+                        </h4>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill detail-fill"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         FEATURES SECTION
+    ====================================== -->
+
+    <section class="features-section">
+
+        <div class="section-heading">
+
+            <span>
+                CORE FEATURES
+            </span>
+
+            <h2>
+
+                Everything Needed To Explore
+                Modern Prompt Engineering
+
+            </h2>
+
+            <p>
+
+                Design prompts, compare outputs,
+                simulate personas and visualize
+                prompt performance with analytics.
+
+            </p>
+
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card glass-card">
+
+                <i class="ri-brain-line"></i>
+
+                <h3>
+                    Prompt Playground
+                </h3>
+
+                <p>
+
+                    Build and experiment with
+                    advanced prompts.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card glass-card">
+
+                <i class="ri-user-star-line"></i>
+
+                <h3>
+                    Persona Simulation
+                </h3>
+
+                <p>
+
+                    Generate outputs from
+                    different expert perspectives.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card glass-card">
+
+                <i class="ri-sword-line"></i>
+
+                <h3>
+                    AI Battle Arena
+                </h3>
+
+                <p>
+
+                    Compare prompting methods
+                    side-by-side.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card glass-card">
+
+                <i class="ri-line-chart-line"></i>
+
+                <h3>
+                    Analytics Dashboard
+                </h3>
+
+                <p>
+
+                    Measure creativity,
+                    detail and effectiveness.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         PROMPT PLAYGROUND
+    ====================================== -->
+
+    <section id="playground"
+             class="prompt-playground">
+
+        <div class="section-heading">
+
+            <span>
+                INTERACTIVE PLAYGROUND
+            </span>
+
+            <h2>
+
+                Design Your Prompt
+
+            </h2>
+
+            <p>
+
+                Configure task type, tone,
+                creativity and prompting strategy.
+
+            </p>
+
+        </div>
+
+        <div class="playground-layout">
+
+            <!-- LEFT PANEL -->
+
+            <div class="playground-controls glass-card">
+
+                <div class="panel-header">
+
+                    <h3>
+                        Prompt Configuration
+                    </h3>
+
+                    <span class="live-indicator">
+
+                        ● LIVE
+
+                    </span>
+
+                </div>
+
+                                <!-- TASK TYPE -->
+
+                <div class="form-group">
+
+                    <label for="taskType">
+                        Task Type
+                    </label>
+
+                    <select id="taskType">
+
+                        <option value="Startup Idea">
+                            Startup Idea
+                        </option>
+
+                        <option value="Story Snippet">
+                            Story Snippet
+                        </option>
+
+                        <option value="Ad Copy">
+                            Ad Copy
+                        </option>
+
+                        <option value="Marketing Campaign">
+                            Marketing Campaign
+                        </option>
+
+                        <option value="Product Launch">
+                            Product Launch
+                        </option>
+
+                        <option value="Social Media Content">
+                            Social Media Content
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- TONE -->
+
+                <div class="form-group">
+
+                    <label for="toneSelect">
+                        Tone
+                    </label>
+
+                    <select id="toneSelect">
+
+                        <option value="Professional">
+                            Professional
+                        </option>
+
+                        <option value="Futuristic">
+                            Futuristic
+                        </option>
+
+                        <option value="Luxury">
+                            Luxury
+                        </option>
+
+                        <option value="Technical">
+                            Technical
+                        </option>
+
+                        <option value="Humorous">
+                            Humorous
+                        </option>
+
+                        <option value="Inspirational">
+                            Inspirational
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- TOPIC -->
+
+                <div class="form-group">
+
+                    <label for="topicInput">
+                        Topic
+                    </label>
+
+                    <textarea
+                        id="topicInput"
+                        placeholder="Example: AI-powered healthcare startup for rural areas">
+                    </textarea>
+
+                </div>
+
+                <!-- TECHNIQUE -->
+
+                <div class="form-group">
+
+                    <label for="promptTechnique">
+                        Prompting Technique
+                    </label>
+
+                    <select id="promptTechnique">
+
+                        <option value="Zero-Shot">
+                            Zero-Shot Prompting
+                        </option>
+
+                        <option value="Few-Shot">
+                            Few-Shot Prompting
+                        </option>
+
+                        <option value="Persona Prompting">
+                            Persona Prompting
+                        </option>
+
+                        <option value="Chain Of Thought">
+                            Chain Of Thought
+                        </option>
+
+                        <option value="Self Consistency">
+                            Self Consistency
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- CREATIVITY -->
+
+                <div class="slider-group">
+
+                    <div class="slider-item">
+
+                        <label>
+                            Creativity
+                        </label>
+
+                        <span id="creativityValue">
+                            75
+                        </span>
+
+                    </div>
+
+                    <input type="range"
+                           id="creativitySlider"
+                           min="0"
+                           max="100"
+                           value="75">
+
+                </div>
+
+                <!-- DETAIL -->
+
+                <div class="slider-group">
+
+                    <div class="slider-item">
+
+                        <label>
+                            Detail Level
+                        </label>
+
+                        <span id="detailValue">
+                            80
+                        </span>
+
+                    </div>
+
+                    <input type="range"
+                           id="detailSlider"
+                           min="0"
+                           max="100"
+                           value="80">
+
+                </div>
+
+                <!-- LENGTH -->
+
+                <div class="slider-group">
+
+                    <div class="slider-item">
+
+                        <label>
+                            Output Length
+                        </label>
+
+                        <span id="lengthValue">
+                            60
+                        </span>
+
+                    </div>
+
+                    <input type="range"
+                           id="lengthSlider"
+                           min="0"
+                           max="100"
+                           value="60">
+
+                </div>
+
+            </div>
+
+            <!-- =====================================
+                 PERSONA LAB
+            ====================================== -->
+
+            <div id="personaLab"
+                 class="persona-panel glass-card">
+
+                <div class="panel-header">
+
+                    <h3>
+                        Persona Lab
+                    </h3>
+
+                    <span>
+                        8 Personas
+                    </span>
+
+                </div>
+
+                <div class="persona-grid">
+
+                    <div class="persona-card active-persona"
+                         data-persona="Founder">
+
+                        <div class="persona-icon">
+                            🚀
+                        </div>
+
+                        <h4>
+                            Founder
+                        </h4>
+
+                        <p>
+                            Business Growth Focus
+                        </p>
+
+                    </div>
+
+                    <div class="persona-card"
+                         data-persona="Investor">
+
+                        <div class="persona-icon">
+                            💰
+                        </div>
+
+                        <h4>
+                            Investor
+                        </h4>
+
+                        <p>
+                            ROI & Scalability
+                        </p>
+
+                    </div>
+
+                    <div class="persona-card"
+                         data-persona="Scientist">
+
+                        <div class="persona-icon">
+                            🧪
+                        </div>
+
+                        <h4>
+                            Scientist
+                        </h4>
+
+                        <p>
+                            Research Driven
+                        </p>
+
+                    </div>
+
+                    <div class="persona-card"
+                         data-persona="Marketer">
+
+                        <div class="persona-icon">
+                            📈
+                        </div>
+
+                        <h4>
+                            Marketer
+                        </h4>
+
+                        <p>
+                            Audience Growth
+                        </p>
+
+                    </div>
+
+                    <div class="persona-card"
+                         data-persona="Storyteller">
+
+                        <div class="persona-icon">
+                            📚
+                        </div>
+
+                        <h4>
+                            Storyteller
+                        </h4>
+
+                        <p>
+                            Narrative Focused
+                        </p>
+
+                    </div>
+
+                    <div class="persona-card"
+                         data-persona="Futurist">
+
+                        <div class="persona-icon">
+                            🤖
+                        </div>
+
+                        <h4>
+                            Futurist
+                        </h4>
+
+                        <p>
+                            Future Thinking
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =====================================
+             FEW SHOT BUILDER
+        ====================================== -->
+
+        <div class="few-shot-section glass-card">
+
+            <div class="section-top">
+
+                <h3>
+                    Few-Shot Example Builder
+                </h3>
+
+                <button id="addExampleBtn"
+                        class="primary-btn">
+
+                    <i class="ri-add-line"></i>
+
+                    Add Example
+
+                </button>
+
+            </div>
+
+            <div id="examplesContainer">
+
+                <div class="example-card">
+
+                    <div class="example-header">
+
+                        <span>
+                            Example #1
+                        </span>
+
+                        <button
+                            type="button"
+                            class="remove-example">
+
+                            <i class="ri-delete-bin-line"></i>
+
+                        </button>
+
+                    </div>
+
+                    <input type="text"
+                           placeholder="Input Example">
+
+                    <textarea
+                        placeholder="Expected Output Example">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =====================================
+             LIVE PROMPT PREVIEW
+        ====================================== -->
+
+        <div class="prompt-preview-panel glass-card">
+
+            <div class="preview-header">
+
+                <div>
+
+                    <h3>
+                        Live Prompt Preview
+                    </h3>
+
+                    <span>
+                        Updates Instantly
+                    </span>
+
+                </div>
+
+                <div class="preview-actions">
+
+                    <button id="copyPrompt">
+
+                        <i class="ri-file-copy-line"></i>
+
+                        Copy
+
+                    </button>
+
+                    <button id="clearPrompt">
+
+                        <i class="ri-delete-bin-line"></i>
+
+                        Clear
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="editor-window">
+
+                <div class="editor-top">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <pre id="livePromptPreview">
+Prompt preview will appear here...
+                </pre>
+
+            </div>
+
+        </div>
+
+        <!-- =====================================
+             PROMPT SCORE
+        ====================================== -->
+
+        <div class="score-section">
+
+            <div class="score-card glass-card">
+
+                <h3>
+                    Prompt Effectiveness Score
+                </h3>
+
+                <div class="score-ring">
+
+                    <svg viewBox="0 0 180 180">
+
+                        <circle
+                            cx="90"
+                            cy="90"
+                            r="70">
+                        </circle>
+
+                        <circle
+                            id="scoreProgress"
+                            cx="90"
+                            cy="90"
+                            r="70">
+                        </circle>
+
+                    </svg>
+
+                    <div class="score-number">
+
+                        <span id="promptScore">
+                            86
+                        </span>
+
+                        <small>
+                            /100
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="recommendation-box">
+
+                    <p id="scoreRecommendation">
+
+                        Add examples and constraints
+                        to improve prompt quality.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         AI BATTLE ARENA START
+    ====================================== -->
+
+    <section id="battleArena"
+             class="battle-arena">
+
+        <div class="section-heading">
+
+            <span>
+                COMPARISON ENGINE
+            </span>
+
+            <h2>
+
+                AI Prompt Battle Arena
+
+            </h2>
+
+            <p>
+
+                Compare multiple prompting
+                strategies side-by-side and
+                identify the best approach.
+
+            </p>
+
+        </div>
+
+        <div class="battle-grid">
+
+          
+            <!-- =====================================
+                 VARIANT A
+            ====================================== -->
+
+            <div class="battle-card glass-card">
+
+                <div class="battle-header">
+
+                    <h3>
+                        Variant A
+                    </h3>
+
+                    <span class="technique-tag">
+                        Zero-Shot
+                    </span>
+
+                </div>
+
+                <div id="outputA"
+                     class="battle-content">
+
+                    Waiting for prompt generation...
+
+                </div>
+
+                <div class="battle-score">
+
+                    <span>
+                        Creativity
+                    </span>
+
+                    <strong>
+                        74
+                    </strong>
+
+                </div>
+
+                <button class="vote-btn">
+
+                    Vote Winner
+
+                </button>
+
+            </div>
+
+            <!-- VARIANT B -->
+
+            <div class="battle-card glass-card">
+
+                <div class="battle-header">
+
+                    <h3>
+                        Variant B
+                    </h3>
+
+                    <span class="technique-tag">
+                        Few-Shot
+                    </span>
+
+                </div>
+
+                <div id="outputB"
+                     class="battle-content">
+
+                    Waiting for prompt generation...
+
+                </div>
+
+                <div class="battle-score">
+
+                    <span>
+                        Creativity
+                    </span>
+
+                    <strong>
+                        88
+                    </strong>
+
+                </div>
+
+                <button class="vote-btn">
+
+                    Vote Winner
+
+                </button>
+
+            </div>
+
+            <!-- VARIANT C -->
+
+            <div class="battle-card glass-card">
+
+                <div class="battle-header">
+
+                    <h3>
+                        Variant C
+                    </h3>
+
+                    <span class="technique-tag">
+                        Persona Prompt
+                    </span>
+
+                </div>
+
+                <div id="outputC"
+                     class="battle-content">
+
+                    Waiting for prompt generation...
+
+                </div>
+
+                <div class="battle-score">
+
+                    <span>
+                        Creativity
+                    </span>
+
+                    <strong>
+                        91
+                    </strong>
+
+                </div>
+
+                <button class="vote-btn">
+
+                    Vote Winner
+
+                </button>
+
+            </div>
+
+            <!-- VARIANT D -->
+
+            <div class="battle-card glass-card">
+
+                <div class="battle-header">
+
+                    <h3>
+                        Variant D
+                    </h3>
+
+                    <span class="technique-tag">
+                        Chain of Thought
+                    </span>
+
+                </div>
+
+                <div id="outputD"
+                     class="battle-content">
+
+                    Waiting for prompt generation...
+
+                </div>
+
+                <div class="battle-score">
+
+                    <span>
+                        Creativity
+                    </span>
+
+                    <strong>
+                        95
+                    </strong>
+
+                </div>
+
+                <button class="vote-btn">
+
+                    Vote Winner
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         ANALYTICS DASHBOARD
+    ====================================== -->
+
+    <section id="analytics"
+             class="analytics-section">
+
+        <div class="section-heading">
+
+            <span>
+                ANALYTICS
+            </span>
+
+            <h2>
+
+                Prompt Intelligence Dashboard
+
+            </h2>
+
+            <p>
+
+                Visualize prompt quality,
+                creativity and effectiveness.
+
+            </p>
+
+        </div>
+
+        <div class="analytics-grid">
+
+            <div class="chart-card glass-card">
+
+                <h3>
+                    Creativity Radar
+                </h3>
+
+                <canvas id="radarChart"></canvas>
+
+            </div>
+
+            <div class="chart-card glass-card">
+
+                <h3>
+                    Technique Comparison
+                </h3>
+
+                <canvas id="barChart"></canvas>
+
+            </div>
+
+            <div class="chart-card glass-card">
+
+                <h3>
+                    Experiment Progress
+                </h3>
+
+                <canvas id="lineChart"></canvas>
+
+            </div>
+
+            <div class="insight-card glass-card">
+
+                <h3>
+                    AI Insights
+                </h3>
+
+                <ul id="insightsList">
+
+                    <li>
+                        Prompt insights will appear here.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         GAMIFICATION
+    ====================================== -->
+
+    <section class="gamification-section">
+
+        <div class="section-heading">
+
+            <span>
+                GAMIFICATION
+            </span>
+
+            <h2>
+
+                Prompt Engineer Journey
+
+            </h2>
+
+        </div>
+
+        <div class="gamification-grid">
+
+            <div class="level-card glass-card">
+
+                <h3>
+                    Current Rank
+                </h3>
+
+                <h1 id="userRank">
+
+                    Prompt Apprentice
+
+                </h1>
+
+                <p>
+
+                    Unlock new achievements
+                    by running experiments.
+
+                </p>
+
+            </div>
+
+            <div class="xp-card glass-card">
+
+                <h3>
+                    Experience Points
+                </h3>
+
+                <div class="xp-bar">
+
+                    <div id="xpFill"></div>
+
+                </div>
+
+                <span id="xpValue">
+
+                    250 XP
+
+                </span>
+
+            </div>
+
+            <div class="challenge-card glass-card">
+
+                <h3>
+                    Daily Challenge
+                </h3>
+
+                <p id="dailyChallenge">
+
+                    Loading challenge...
+
+                </p>
+
+                <button class="primary-btn">
+
+                    Start Challenge
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         EXPERIMENT HISTORY
+    ====================================== -->
+
+    <section class="history-section">
+
+        <div class="section-heading">
+
+            <span>
+                HISTORY
+            </span>
+
+            <h2>
+
+                Experiment Archive
+
+            </h2>
+
+            <p>
+
+                Reload previous prompt
+                engineering experiments.
+
+            </p>
+
+        </div>
+
+        <div class="history-container glass-card">
+
+            <!-- Filled via JS -->
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         LEARNING HUB
+    ====================================== -->
+
+    <section id="learningHub"
+             class="learning-section">
+
+        <div class="section-heading">
+
+            <span>
+                LEARNING HUB
+            </span>
+
+            <h2>
+
+                Prompt Engineering Knowledge Base
+
+            </h2>
+
+            <p>
+
+                Learn advanced prompting
+                frameworks and techniques.
+
+            </p>
+
+        </div>
+
+        <div class="learning-grid">
+
+            <div class="learning-card glass-card">
+
+                <h3>
+                    Zero-Shot Prompting
+                </h3>
+
+                <p>
+
+                    Generate outputs without
+                    examples or demonstrations.
+
+                </p>
+
+            </div>
+
+            <div class="learning-card glass-card">
+
+                <h3>
+                    Few-Shot Prompting
+                </h3>
+
+                <p>
+
+                    Use examples to guide
+                    model behavior.
+
+                </p>
+
+            </div>
+
+            <div class="learning-card glass-card">
+
+                <h3>
+                    Role Prompting
+                </h3>
+
+                <p>
+
+                    Assign expert personas
+                    to shape responses.
+
+                </p>
+
+            </div>
+
+            <div class="learning-card glass-card">
+
+                <h3>
+                    Chain of Thought
+                </h3>
+
+                <p>
+
+                    Encourage step-by-step
+                    reasoning.
+
+                </p>
+
+            </div>
+
+            <div class="learning-card glass-card">
+
+                <h3>
+                    Self Consistency
+                </h3>
+
+                <p>
+
+                    Compare multiple reasoning
+                    paths before answering.
+
+                </p>
+
+            </div>
+
+            <div class="learning-card glass-card">
+
+                <h3>
+                    Tree of Thoughts
+                </h3>
+
+                <p>
+
+                    Explore multiple solution
+                    branches for complex tasks.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         CTA SECTION
+    ====================================== -->
+
+    <section class="cta-section">
+
+        <div class="cta-card glass-card">
+
+            <h2>
+
+                Ready To Become A
+                Prompt Engineering Expert?
+
+            </h2>
+
+            <p>
+
+                Build, compare and optimize
+                prompts with futuristic analytics,
+                AI personas and battle testing.
+
+            </p>
+
+            <button class="primary-btn">
+
+                Export Research Report
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <h2>
+                    PromptVerse AI
+                </h2>
+
+                <p>
+
+                    Interactive Prompt Engineering
+                    Research Studio.
+
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#playground">
+                    Playground
+                </a>
+
+                <a href="#personaLab">
+                    Personas
+                </a>
+
+                <a href="#battleArena">
+                    Battle Arena
+                </a>
+
+                <a href="#analytics">
+                    Analytics
+                </a>
+
+                <a href="#learningHub">
+                    Learning Hub
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 PromptVerse AI —
+                Internship Level Prompt Engineering Project
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
